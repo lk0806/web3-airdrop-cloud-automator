@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: web3-airdrop-automator
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python cloud_airdrop_server.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: 5060

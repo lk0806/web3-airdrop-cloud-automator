@@ -1,0 +1,68 @@
+{
+  "priority_focus": "TIER_1_MEGA_AIRDROPS_AND_HIGH_VALUE_GIVEAWAYS",
+  "min_funding_filter": "$100 Million+",
+  "active_campaigns": [
+    {
+      "id": "monad_mega_airdrop",
+      "name": "Monad ($225M Paradigm Mega Airdrop)",
+      "tier": "TIER_1_UNICORN",
+      "funding": "$225 Million (Paradigm, Dragonfly, Electric Capital)",
+      "estimated_airdrop_value": "$1,500 - $8,000 per wallet",
+      "status": "PRIORITY_1_ACTIVE",
+      "cost": "$0.00 (Free Testnet Gas)",
+      "tasks": ["daily_faucet", "dex_mock_volume", "contract_deployment_test", "monad_daily_checkin"],
+      "criteria": "Testnet activity streak + Mock swaps + Contract interactions"
+    },
+    {
+      "id": "linea_consensys_airdrop",
+      "name": "Linea by Consensys ($450M MetaMask Parent)",
+      "tier": "TIER_1_UNICORN",
+      "funding": "$450 Million (Consensys / Temasek / SoftBank)",
+      "estimated_airdrop_value": "$1,000 - $5,000 per wallet",
+      "status": "PRIORITY_1_ACTIVE",
+      "cost": "$0.00 (Testnet Voyage / Free XP)",
+      "tasks": ["linea_lxp_streak", "daily_proof_checkin", "voyage_quests"],
+      "criteria": "LXP accumulation before Mainnet Token Generation Event (TGE)"
+    },
+    {
+      "id": "berachain_pol_mega_drop",
+      "name": "Berachain ($142M Proof-of-Liquidity)",
+      "tier": "TIER_1_UNICORN",
+      "funding": "$142 Million (Framework Ventures, Brevan Howard)",
+      "estimated_airdrop_value": "$1,200 - $6,000 per wallet",
+      "status": "PRIORITY_1_ACTIVE",
+      "cost": "$0.00 (Free BERA Faucet)",
+      "tasks": ["daily_bera_faucet", "honey_dex_swap", "bend_liquidity_test"],
+      "criteria": "bArtio testnet transaction volume & weekly streaks"
+    },
+    {
+      "id": "story_protocol_odyssey",
+      "name": "Story Protocol ($140M a16z Crypto)",
+      "tier": "TIER_1_UNICORN",
+      "funding": "$140 Million (Andreessen Horowitz a16z, Polychain)",
+      "estimated_airdrop_value": "$800 - $3,500 per wallet",
+      "status": "PRIORITY_1_ACTIVE",
+      "cost": "$0.00 (Free Odyssey Faucet)",
+      "tasks": ["daily_ip_faucet", "register_mock_ip_asset", "odyssey_explorer_tx"],
+      "criteria": "Odyssey testnet asset creation & daily transactions"
+    },
+    {
+      "id": "bybit_galxe_mega_giveaways",
+      "name": "Verified Web3 Prize Pools ($50,000 - $200,000 Giveaways)",
+      "tier": "VERIFIED_GIVEAWAYS",
+      "funding": "Direct USDT / Token Rewards",
+      "estimated_airdrop_value": "$100 - $1,000 USDT Immediate",
+      "status": "PRIORITY_1_ACTIVE",
+      "cost": "$0.00 (Free Task Verifications)",
+      "tasks": ["daily_galxe_points", "web3_arcade_verification", "quiz_answers"],
+      "criteria": "Daily verified entry submission"
+    }
+  ],
+  "wallet_vault": {
+    "evm_public_address": "0xPendingSetup",
+    "streak_days": 1,
+    "total_tasks_completed": 5,
+    "total_estimated_value": "$4,600 - $23,500",
+    "last_run_timestamp": "2026-10-24 16:50:00 UTC"
+  }
+}
