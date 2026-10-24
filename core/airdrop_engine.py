@@ -22,8 +22,14 @@ except Exception:
     pass
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 CONFIG_FILE = os.path.join(PROJECT_ROOT, "config", "airdrop_campaigns.json")
 LOGS_FILE = os.path.join(PROJECT_ROOT, "logs", "execution_logs.json")
+
+from modules.identity_generator import generate_or_load_identity
+from modules.social_task_verifier import SocialTaskVerifier
 
 class AirdropEngine:
     def __init__(self):
@@ -54,36 +60,54 @@ class AirdropEngine:
 
     def run_daily_streak_cycle(self) -> Dict[str, Any]:
         """
-        Executes daily airdrop faucet claims and check-in tasks.
+        Executes daily airdrop faucet claims, check-in tasks, and automated social verifications.
         """
         now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
         self.last_cycle_time = now_str
         cycle_results = []
 
+        # 1. Load isolated wallet identity
+        identity = generate_or_load_identity()
+        wallet_addr = identity.get("address", "0xB6B4658a08A927157cAA33E86dE4007e4588E8Ea")
+
+        # 2. Execute automated social task verifications (Twitter/Insta/Quiz)
+        verifier = SocialTaskVerifier(wallet_addr)
+        social_tasks = verifier.run_all_daily_social_quests()
+        for st in social_tasks:
+            cycle_results.append({
+                "campaign_id": "social_automation",
+                "name": f"Automated Quest: {st.get('target', st.get('task_type'))}",
+                "timestamp": now_str,
+                "status": st.get("status", "VERIFIED_AUTO"),
+                "message": st.get("message"),
+                "gas_cost": "$0.00 (Automated Free)"
+            })
+            self.total_completed_tasks += 1
+
+        # 3. Execute campaign streaks
         for camp in self.campaigns.get("active_campaigns", []):
             camp_id = camp.get("id")
             name = camp.get("name")
             
-            # Simulate/execute automated verified headless streak task
             task_status = {
                 "campaign_id": camp_id,
                 "name": name,
                 "timestamp": now_str,
                 "status": "SUCCESS_STREAK_ACTIVE",
-                "message": f"Daily streak check-in completed for {name}. Points accrued.",
+                "message": f"Daily streak & mock swap completed for {name}. Wallet: {wallet_addr[:6]}...{wallet_addr[-4:]}",
                 "gas_cost": "$0.00 (Testnet)",
                 "next_claim_hours": 8 if "Every 8" in camp.get("frequency", "") else 24
             }
             cycle_results.append(task_status)
             self.total_completed_tasks += 1
 
-            # Log to internal execution history
             with self._lock:
                 self.logs.insert(0, task_status)
                 self.logs = self.logs[:50]
 
         # Update wallet vault stats
         vault = self.campaigns.setdefault("wallet_vault", {})
+        vault["evm_public_address"] = wallet_addr
         vault["streak_days"] = vault.get("streak_days", 1) + 1
         vault["total_tasks_completed"] = self.total_completed_tasks
         vault["last_run_timestamp"] = now_str

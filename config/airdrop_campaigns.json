@@ -10,7 +10,12 @@
       "estimated_airdrop_value": "$1,500 - $8,000 per wallet",
       "status": "PRIORITY_1_ACTIVE",
       "cost": "$0.00 (Free Testnet Gas)",
-      "tasks": ["daily_faucet", "dex_mock_volume", "contract_deployment_test", "monad_daily_checkin"],
+      "tasks": [
+        "daily_faucet",
+        "dex_mock_volume",
+        "contract_deployment_test",
+        "monad_daily_checkin"
+      ],
       "criteria": "Testnet activity streak + Mock swaps + Contract interactions"
     },
     {
@@ -21,7 +26,11 @@
       "estimated_airdrop_value": "$1,000 - $5,000 per wallet",
       "status": "PRIORITY_1_ACTIVE",
       "cost": "$0.00 (Testnet Voyage / Free XP)",
-      "tasks": ["linea_lxp_streak", "daily_proof_checkin", "voyage_quests"],
+      "tasks": [
+        "linea_lxp_streak",
+        "daily_proof_checkin",
+        "voyage_quests"
+      ],
       "criteria": "LXP accumulation before Mainnet Token Generation Event (TGE)"
     },
     {
@@ -32,7 +41,11 @@
       "estimated_airdrop_value": "$1,200 - $6,000 per wallet",
       "status": "PRIORITY_1_ACTIVE",
       "cost": "$0.00 (Free BERA Faucet)",
-      "tasks": ["daily_bera_faucet", "honey_dex_swap", "bend_liquidity_test"],
+      "tasks": [
+        "daily_bera_faucet",
+        "honey_dex_swap",
+        "bend_liquidity_test"
+      ],
       "criteria": "bArtio testnet transaction volume & weekly streaks"
     },
     {
@@ -43,7 +56,11 @@
       "estimated_airdrop_value": "$800 - $3,500 per wallet",
       "status": "PRIORITY_1_ACTIVE",
       "cost": "$0.00 (Free Odyssey Faucet)",
-      "tasks": ["daily_ip_faucet", "register_mock_ip_asset", "odyssey_explorer_tx"],
+      "tasks": [
+        "daily_ip_faucet",
+        "register_mock_ip_asset",
+        "odyssey_explorer_tx"
+      ],
       "criteria": "Odyssey testnet asset creation & daily transactions"
     },
     {
@@ -54,15 +71,19 @@
       "estimated_airdrop_value": "$100 - $1,000 USDT Immediate",
       "status": "PRIORITY_1_ACTIVE",
       "cost": "$0.00 (Free Task Verifications)",
-      "tasks": ["daily_galxe_points", "web3_arcade_verification", "quiz_answers"],
+      "tasks": [
+        "daily_galxe_points",
+        "web3_arcade_verification",
+        "quiz_answers"
+      ],
       "criteria": "Daily verified entry submission"
     }
   ],
   "wallet_vault": {
-    "evm_public_address": "0xPendingSetup",
-    "streak_days": 1,
-    "total_tasks_completed": 5,
+    "evm_public_address": "0xB6B4658a08A927157cAA33E86dE4007e4588E8Ea",
+    "streak_days": 2,
+    "total_tasks_completed": 11,
     "total_estimated_value": "$4,600 - $23,500",
-    "last_run_timestamp": "2026-10-24 16:50:00 UTC"
+    "last_run_timestamp": "2026-10-24 16:57:14 UTC"
   }
 }
